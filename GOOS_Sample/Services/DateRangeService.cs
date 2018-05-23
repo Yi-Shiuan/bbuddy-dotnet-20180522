@@ -10,6 +10,17 @@ namespace GOOS_Sample.Services
         public string SatrtDate { get; set; }
         public string EndDate { get; set; }
 
+        public DateTime StartDateTime()
+        {
+            return DateTime.Parse(SatrtDate);
+        }
+
+        public DateTime EndDateTime()
+        {
+            return DateTime.Parse(EndDate);
+
+        }
+        
         public bool IsYearMonthInRange(int year, int month)
         {
             return true;

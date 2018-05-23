@@ -27,64 +27,7 @@ namespace GOOS_Sample.Services.Tests
         {
             _budgets = budgets.ToList();
         }
-        [TestMethod()]
-        public void budget_in_same_day_will_return_only_one_budget()
-        {
-            GivenDateRage("2018-05-16", "2018-05-16");
-            GivenBudgets(
-                new BudgetViewModel
-                {
-                    Amount = 310,
-                    Month = "2018-05"
-                },
-                new BudgetViewModel
-                {
-                    Amount = 600,
-                    Month = "2018-06"
-                },
-                new BudgetViewModel
-                {
-                    Amount = 620,
-                    Month = "2018-07"
-                }
-            );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.SelectBudgets(_range, _budgets);
-
-            Assert.AreEqual(1, actual.Count);
-            Assert.AreEqual("2018-05", actual[0].Month);
-        }
-
-        [TestMethod()]
-        public void budget_in_same_month_will_return_no_budget()
-        {
-            GivenDateRage("2018-04-16", "2018-04-16");
-            GivenBudgets(
-                new BudgetViewModel
-                {
-                    Amount = 310,
-                    Month = "2018-05"
-                },
-                new BudgetViewModel
-                {
-                    Amount = 600,
-                    Month = "2018-06"
-                },
-                new BudgetViewModel
-                {
-                    Amount = 620,
-                    Month = "2018-07"
-                }
-            );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.SelectBudgets(_range, _budgets);
-
-            Assert.AreEqual(0, actual.Count);
-           
-        }
-
+       
         [TestMethod()]
         public void budget_in_may_one_day_will_10()
         {
@@ -141,9 +84,9 @@ namespace GOOS_Sample.Services.Tests
         }
 
         [TestMethod()]
-        public void budget_in_range_will_1060()
+        public void budget_in_range_will_1050()
         {
-            GivenDateRage("2018-05-16", "2018-07-15");
+            GivenDateRage("2018-05-17", "2018-07-15");
             GivenBudgets(
                 new BudgetViewModel
                 {
@@ -165,7 +108,7 @@ namespace GOOS_Sample.Services.Tests
             BudgetService service = new BudgetService(subRepo);
             var actual = service.CalculateTotalInRange(_range, _budgets);
 
-            Assert.AreEqual(1060, actual);
+            Assert.AreEqual(1050, actual);
         }
 
         [TestMethod()]
