@@ -10,7 +10,7 @@ namespace GOOS_Sample.Controllers
 {
     public class BudgetsController : Controller
     {
-        private IBudgetService _service;
+        private readonly IBudgetService _service;
         public BudgetsController(IBudgetService service)//BudgetService service)
         {
             this._service = service;

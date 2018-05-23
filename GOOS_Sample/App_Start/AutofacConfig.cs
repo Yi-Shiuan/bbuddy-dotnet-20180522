@@ -17,8 +17,8 @@ namespace GOOS_Sample.App_Start
 //            builder.Register(x=> x.ResolveComponent())
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
-            builder.RegisterType<IBudgetRepo>().As<BudgetRepo>();
-            builder.RegisterType<IBudgetService>().As<BudgetService>();
+            builder.RegisterType<BudgetRepo>().As<IBudgetRepo>();
+            builder.RegisterType<BudgetService>().As<IBudgetService>();
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));

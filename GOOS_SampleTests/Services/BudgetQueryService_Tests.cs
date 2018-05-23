@@ -19,5 +19,14 @@ namespace GOOS_Sample.Services.Tests
             var expected = 1060;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void GetTotalBudget_Test_SameDate()
+        {
+            BudgetQueryService service = new BudgetQueryService();
+            var actual = service.GetTotalBudget("2018-05-16", "2018-05-16");
+            var expected = 10;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

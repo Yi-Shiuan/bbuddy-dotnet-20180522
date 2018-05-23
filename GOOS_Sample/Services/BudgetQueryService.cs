@@ -65,7 +65,9 @@ namespace GOOS_Sample.Services
         {
             var budgetYear = System.Convert.ToInt32(month.Split('-')[0]);
             var budgetMonth = System.Convert.ToInt32(month.Split('-')[1]);
-            return (IsFullMonthIncluded(startDate, endDate, budgetYear, budgetMonth) || IsMonthStartIncluded(startDate, endDate, budgetYear, budgetMonth) || IsMonthEndIncluded(startDate, endDate, budgetYear, budgetMonth));
+            var FirstDayOfStartDate = new DateTime(startDate.Year, startDate.Month,1);
+            var LastDayOfEndDate = new DateTime(endDate.Year, endDate.Month, DateTime.DaysInMonth(endDate.Year, endDate.Month));
+            return (IsFullMonthIncluded(FirstDayOfStartDate, LastDayOfEndDate, budgetYear, budgetMonth) || IsMonthStartIncluded(FirstDayOfStartDate, LastDayOfEndDate, budgetYear, budgetMonth) || IsMonthEndIncluded(FirstDayOfStartDate, LastDayOfEndDate, budgetYear, budgetMonth));
         }
 
         public bool IsFullMonthIncluded(DateTime startDate, DateTime endDate, int year, int month)
@@ -89,7 +91,7 @@ namespace GOOS_Sample.Services
 
         public bool IsDateInRange(DateTime startDate, DateTime endDate, DateTime dateToCheck)
         {
-            return dateToCheck >= startDate && dateToCheck < endDate;
+            return dateToCheck >= startDate && dateToCheck <= endDate;
         }
 
         public int GetBudgetOfTheMonth(int year, int month)

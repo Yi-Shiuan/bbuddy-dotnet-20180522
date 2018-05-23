@@ -1,4 +1,5 @@
-﻿using GOOS_Sample.Models;
+﻿using System.Collections.Generic;
+using GOOS_Sample.Models;
 
 namespace GOOS_Sample.Services
 {
@@ -6,6 +7,7 @@ namespace GOOS_Sample.Services
     {
         Budget FindByMonth(string month);
         void Add(Budget model);
+        IEnumerable<Budget> GetAll();
 
     }
 }

@@ -31,5 +31,10 @@ namespace GOOS_Sample.Services
                 _dbcontext.SaveChanges();
             }
         }
+
+        public IEnumerable<Budget> GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

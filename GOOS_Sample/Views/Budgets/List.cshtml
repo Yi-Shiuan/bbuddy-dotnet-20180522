@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GOOS_Sample.Models.Budget>
+﻿@model IEnumerable<GOOS_Sample.Models.BudgetViewModel>
 
 @{
     ViewBag.Title = "List";
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.Amount)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.YearMonth }) |
-            @Html.ActionLink("Details", "Details", new { id=item.YearMonth }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.YearMonth })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Month }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Month }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Month })
         </td>
     </tr>
 }

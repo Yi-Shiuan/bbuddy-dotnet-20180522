@@ -1,4 +1,4 @@
-﻿@model GOOS_Sample.Models.Budget
+﻿@model GOOS_Sample.Models.BudgetViewModel
 
 @{
     ViewBag.Title = "Add";
@@ -23,10 +23,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.YearMonth, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Month, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.YearMonth, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.YearMonth, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Month, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
             </div>
         </div>
 
