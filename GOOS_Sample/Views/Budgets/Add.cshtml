@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm("Add", "Budgets", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Create a new account.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="col-md-2 control-label">Year Month</label>
+        <div class="col-md-10">
+            <input class="form-control" id="yearMonth" name="yearMonth"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">Budget</label>
+        <div class="col-md-10">
+            <input class="form-control" id="amount" name="amount" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Register" />
+        </div>
+    </div>
+}

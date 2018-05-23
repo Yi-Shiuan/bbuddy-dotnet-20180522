@@ -29,5 +29,7 @@ namespace GOOS_Sample.Models
         {
             return new ApplicationDbContext();
         }
+
+        public virtual IDbSet<Budget> Budgets { get; set; }
     }
 }

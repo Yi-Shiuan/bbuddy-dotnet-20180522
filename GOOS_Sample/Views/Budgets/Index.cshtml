@@ -1,0 +1,23 @@
+﻿@model IEnumerable<GOOS_Sample.Models.Budget>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>YearMonth</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr class="@item.YearMonth">
+            <td>@item.YearMonth</td>
+            <td>@item.Amount</td>
+        </tr>
+    }
+    
+    </tbody>
+</table>
