@@ -7,6 +7,7 @@ namespace GOOS_Sample.Services
     {
         void Save(Budget budget);
         IEnumerable<Budget> GetBudgets();
+        Budget GetBudgets(string v);
     }
 
     public class BudgetRepo : IBudgetRepo
@@ -27,6 +28,11 @@ namespace GOOS_Sample.Services
         public IEnumerable<Budget> GetBudgets()
         {
             return db.Budgets;
+        }
+
+        public Budget GetBudgets(string v)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

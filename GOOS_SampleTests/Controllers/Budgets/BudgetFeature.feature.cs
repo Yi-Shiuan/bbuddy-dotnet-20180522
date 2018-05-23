@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace GOOS_SampleTests.Controllers
+namespace GOOS_SampleTests.Controllers.Budgets
 {
     using TechTalk.SpecFlow;
     
@@ -62,7 +62,7 @@ namespace GOOS_SampleTests.Controllers
             if (((testRunner.FeatureContext != null) 
                         && (testRunner.FeatureContext.FeatureInfo.Title != "BudgetFeature")))
             {
-                global::GOOS_SampleTests.Controllers.BudgetFeatureFeature.FeatureSetup(null);
+                global::GOOS_SampleTests.Controllers.Budgets.BudgetFeatureFeature.FeatureSetup(null);
             }
         }
         

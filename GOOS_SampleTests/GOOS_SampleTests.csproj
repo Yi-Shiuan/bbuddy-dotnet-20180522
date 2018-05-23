@@ -132,13 +132,19 @@
   <ItemGroup>
     <Compile Include="Actions\TimeProvider.cs" />
     <Compile Include="Actions\UnitTest1.cs" />
-    <Compile Include="Controllers\BudgetFeatureSteps.cs" />
-    <Compile Include="Controllers\BudgetFeature.feature.cs">
+    <Compile Include="Controllers\Budgets\BudgetFeatureSteps.cs" />
+    <Compile Include="Controllers\Budgets\BudgetFeature.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BudgetFeature.feature</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\BudgetsControllerTests.cs" />
+    <Compile Include="Controllers\Budgets\BudgetsControllerTests.cs" />
+    <Compile Include="Controllers\GetBudgets\GetBudget.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetBudget.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\GetBudgets\BudgetsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BudgetRepoTests.cs" />
     <Compile Include="Services\BudgetServiceTests.cs" />
@@ -147,9 +153,13 @@
     <Content Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\BudgetFeature.feature">
+    <None Include="Controllers\Budgets\BudgetFeature.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>BudgetFeature.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Controllers\GetBudgets\GetBudget.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetBudget.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
