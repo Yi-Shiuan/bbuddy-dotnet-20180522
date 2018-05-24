@@ -14,6 +14,8 @@ namespace GOOS_Sample.Services.Tests
     {
         private DateRangeService _range;
         private List<BudgetViewModel> _budgets;
+        private static BudgetService _budgetService;
+
         private void GivenDateRage(string startDate, string endDate)
         {
              _range = new DateRangeService
@@ -28,6 +30,16 @@ namespace GOOS_Sample.Services.Tests
             _budgets = budgets.ToList();
         }
        
+        
+
+        [TestInitialize()]
+        public void BeforeTests()
+        {
+            var budgetRepo = NSubstitute.Substitute.For<IBudgetRepo>();
+            _budgetService = new BudgetService(budgetRepo);
+            
+        }
+
         [TestMethod()]
         public void budget_in_may_one_day_will_10()
         {
@@ -49,12 +61,11 @@ namespace GOOS_Sample.Services.Tests
                     Month = "2018-07"
                 }
             );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.CalculateTotalInRange(_range, _budgets);
-
-            Assert.AreEqual(10, actual);
+            TotalBudgetShouldBe(10);
         }
+
+        
+
         [TestMethod()]
         public void budget_in_april_one_day_will_0()
         {
@@ -76,11 +87,8 @@ namespace GOOS_Sample.Services.Tests
                     Month = "2018-07"
                 }
             );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.CalculateTotalInRange(_range, _budgets);
-
-            Assert.AreEqual(0, actual);
+            
+            TotalBudgetShouldBe(0);
         }
 
         [TestMethod()]
@@ -104,11 +112,7 @@ namespace GOOS_Sample.Services.Tests
                     Month = "2018-07"
                 }
             );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.CalculateTotalInRange(_range, _budgets);
-
-            Assert.AreEqual(1050, actual);
+            TotalBudgetShouldBe(1050);
         }
 
         [TestMethod()]
@@ -127,11 +131,14 @@ namespace GOOS_Sample.Services.Tests
                     Month = "2018-07"
                 }
             );
-            var subRepo = NSubstitute.Substitute.For<IBudgetRepo>();
-            BudgetService service = new BudgetService(subRepo);
-            var actual = service.CalculateTotalInRange(_range, _budgets);
+            TotalBudgetShouldBe(460);
+        }
 
-            Assert.AreEqual(460, actual);
+        private void TotalBudgetShouldBe(int result)
+        {
+            var actual = _budgetService.CalculateRangeTotal(_range, _budgets);
+
+            Assert.AreEqual(result, actual);
         }
     }
 }

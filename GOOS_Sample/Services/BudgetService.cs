@@ -25,12 +25,12 @@ namespace GOOS_Sample.Services
             });
         }
 
-        public int CalculateTotalInRange(string startDate, string endDate, List<BudgetViewModel> budgets)
+        public int CalculateRangeTotal(string startDate, string endDate, List<BudgetViewModel> budgets)
         {
-            return CalculateTotalInRange(new DateRangeService {SatrtDate = startDate, EndDate = endDate}, budgets);
+            return CalculateRangeTotal(new DateRangeService {SatrtDate = startDate, EndDate = endDate}, budgets);
         }
 
-        public int CalculateTotalInRange(DateRangeService range, List<BudgetViewModel> budgets)
+        public int CalculateRangeTotal(DateRangeService range, List<BudgetViewModel> budgets)
         {
             var total = 0;
             if (range.IsRangeInSameYearMonth())
@@ -100,8 +100,8 @@ namespace GOOS_Sample.Services
     public interface IBudgetService
     {
         void Add(BudgetViewModel budget);
-        int CalculateTotalInRange(string startDate, string endDate, List<BudgetViewModel> budgets);
-        int CalculateTotalInRange(DateRangeService range, List<BudgetViewModel> budgets);
+        int CalculateRangeTotal(string startDate, string endDate, List<BudgetViewModel> budgets);
+        int CalculateRangeTotal(DateRangeService range, List<BudgetViewModel> budgets);
         //List<BudgetViewModel> SelectBudgets(DateRangeService range, List<BudgetViewModel> budgets);
     }
 }
